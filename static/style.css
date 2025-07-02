@@ -108,5 +108,42 @@ table tr:hover {
   background: #4ade80; /* green scrollbar */
   border-radius: 10px;
 }
+/* Optional custom scrollbar styling */
+.table-wrapper::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+.table-wrapper::-webkit-scrollbar-thumb {
+  background-color: #4ade80; /* green bar */
+  border-radius: 10px;
+}
+/* Style scrollbars inside the table */
+table::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+table::-webkit-scrollbar-thumb {
+  background: #4ade80;
+  border-radius: 6px;
+}
+/* Apply styled scrollbars to both vertical and horizontal wrappers */
+.custom-scroll::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.custom-scroll::-webkit-scrollbar-track {
+  background: #1f1f1f;
+  border-radius: 10px;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb {
+  background: #4ade80; /* light green */
+  border-radius: 10px;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb:hover {
+  background: #22c55e; /* darker green on hover */
+}
 
 
