@@ -44,9 +44,9 @@ def get_ip_info():
                 country_name = get_full_country_name(country_code)
 
                 summary_lines.append(
-                    f"The IP {ip} belongs to the ISP: {isp} from the country: {country_name} with detection count: {detections}/93."
+                    f"The IP {ip} belongs to the ISP: {isp} from the country: {country_name} with detection count: {detections}."
                 )
-                table_rows.append(f"<tr><td>{ip}</td><td>{isp}</td><td>{country_name}</td><td>{detections}/93</td></tr>")
+                table_rows.append(f"<tr><td>{ip}</td><td>{isp}</td><td>{country_name}</td><td>{detections}</td></tr>")
             else:
                 summary_lines.append(f"The IP {ip} could not be retrieved (Error {response.status_code}).")
         except Exception as e:
