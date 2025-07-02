@@ -36,8 +36,24 @@ async function fetchIPData() {
   document.getElementById('tableSection').classList.remove('hidden');
 }
 
-function copyToClipboard(elementId, btnId) {
-  const text = document.getElementById(elementId).innerText;
+function copyTableToClipboard(btnId) {
+  const headers = [...document.querySelectorAll('#tableSection thead th')]
+    .map(th => th.innerText.trim())
+    .join('\t');
+
+  const rows = [...document.querySelectorAll('#tableBody tr')].map(row => {
+    const cells = [...row.children].map((cell, i) => {
+      let text = cell.innerText.trim();
+
+      // Excel-safe: Add a leading apostrophe to detection count to prevent date auto-format
+      if (i === 3) text = `'${text}`;
+      return text;
+    });
+    return cells.join('\t');
+  });
+
+  const text = [headers, ...rows].join('\n');
+
   navigator.clipboard.writeText(text).then(() => {
     const btn = document.getElementById(btnId);
     const original = btn.innerHTML;
@@ -46,15 +62,3 @@ function copyToClipboard(elementId, btnId) {
   });
 }
 
-function copyTableToClipboard(btnId) {
-  const rows = [...document.querySelectorAll('#tableBody tr')].map(row => {
-    return [...row.children].map(cell => cell.innerText).join('\t');
-  });
-  const text = rows.join('\n');
-  navigator.clipboard.writeText(text).then(() => {
-    const btn = document.getElementById(btnId);
-    const original = btn.innerHTML;
-    btn.innerHTML = '<i class="ph ph-check"></i> Copied!';
-    setTimeout(() => btn.innerHTML = original, 1500);
-  });
-}

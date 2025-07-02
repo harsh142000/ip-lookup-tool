@@ -9,6 +9,9 @@ app = Flask(__name__)
 
 # Load your VirusTotal API key from .env file
 VT_API_KEY = os.getenv("VT_API_KEY")
+print("Loaded API key:", VT_API_KEY)
+print("Render API Key:", os.getenv("VT_API_KEY"))
+
 
 @app.route('/')
 def index():
