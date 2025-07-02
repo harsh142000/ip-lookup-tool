@@ -98,3 +98,15 @@ table tr:hover {
   margin-bottom: 0.5rem;
 }
 
+/* Style scrollbars for dark theme */
+#summary::-webkit-scrollbar,
+#tableSection .overflow-x-auto::-webkit-scrollbar {
+  width: 8px;
+}
+#summary::-webkit-scrollbar-thumb,
+#tableSection .overflow-x-auto::-webkit-scrollbar-thumb {
+  background: #4ade80; /* green scrollbar */
+  border-radius: 10px;
+}
+
+
