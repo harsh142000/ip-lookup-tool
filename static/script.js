@@ -3,6 +3,15 @@ function isValidIP(ip) {
   const ipv6 = /^[0-9a-fA-F:]+$/;
   return ipv4.test(ip) || ipv6.test(ip);
 }
+module.exports = {
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', 'sans-serif']
+      }
+    }
+  }
+}
 
 async function fetchIPData() {
   const input = document.getElementById('ipInput').value;
